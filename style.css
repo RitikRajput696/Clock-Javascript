@@ -1,3 +1,15 @@
+:root {
+  --gradient: linear-gradient(
+    45deg,
+    #f8ad5e,
+    #b591ae,
+    #00c6c0,
+    #3b908c,
+    #fdd977,
+    #d19ea3
+  );
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +18,10 @@
 
 body {
   background-color: rgb(1, 4, 22);
+  background-image: var(--gradient);
+  animation: animate-bg 20s infinite alternate-reverse;
+  background-size: 300%;
+  background-position: left;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,23 +35,24 @@ body {
 
   font-weight: bold;
   font-size: 4rem;
-  box-shadow: 0 0 2em 0 #9db2de;
+  /* box-shadow: 0 0 2em 0 #9db2de; */
+  filter: invert(#6f85b4);
   padding: 1rem;
   border-radius: 5px;
-  background-color: transparent;
+  /* background-color: #6f85b4; */
 }
 span {
-  text-shadow: 2px 2px #b1bdd8, 5px 5px #6888cc;
+  text-shadow: 2px 2px #b1bdd8, 5px 5px #051230;
 }
 .circle {
   position: absolute;
   background-color: #9db2de;
   width: 20rem;
-  /* height: 200px; */
   aspect-ratio: 1;
   border-radius: 50%;
   filter: blur(70px);
-  animation: moveCircle 10s alternate infinite;
+  opacity: 0.5;
+  animation: moveCircle 20s alternate infinite;
 }
 
 @keyframes moveCircle {
@@ -57,5 +74,13 @@ span {
   100% {
     transform: translate(-20rem, 20rem);
     background-color: yellow;
+  }
+}
+@keyframes animate-bg {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
   }
 }
